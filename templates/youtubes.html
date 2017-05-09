@@ -1,0 +1,14 @@
+<div class="images" id="image{{ youtube["id"] }}">
+  <div class = "threadbutton">
+      <button type="button" class="lovebutton" onclick="loveClick({{ youtube["id"] }})">
+      {{ youtube["id"] }} : きゃわわ<span id="{{youtube["id"]}}lovenum">{{ youtube["love"] }}</span>
+      </button>
+      <button type="button" class="deletebutton" onclick="deleteYoutubeClick({{ youtube["id"] }})">
+      D
+      </button>
+  </div>
+  
+  <a href="javascript:void(0)" onclick="youtubeClick({{ youtube["id"] }});return false;">
+  <img src="{{ (youtube["thumbnailname"]) }}" class="imagelistfactor"></a>
+  <p class="commentnum"><span id="commentnum{{youtube["id"] }}">閲覧必要lolv:{{youtube["requiredlolv"]}}<br> コメ:{{ ressnum }}レス</span></p>
+</div>

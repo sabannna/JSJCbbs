@@ -1,0 +1,14 @@
+<div class="images" id="image{{ image["id"] }}">
+  <div class = "threadbutton">
+      <button type="button" class="lovebutton" onclick="loveClick({{ image["id"] }})">
+      {{ image["id"] }} : きゃわわ<span id="{{image["id"]}}lovenum">{{ image["love"] }}</span>
+      </button>
+      <button type="button" class="deletebutton" onclick="deleteClick({{ image["id"] }})">
+      D
+      </button>
+  </div>
+  
+  <a href="javascript:void(0)" onclick="imageClick({{ image["id"] }});return false;">
+  <img src="{{ static_url(image["thumbnailname"]) }}" class="imagelistfactor"></a>
+  <p class="commentnum"><span id="commentnum{{image["id"] }}">閲覧必要lolv:{{image["requiredlolv"]}}<br> コメ:{{ ressnum }}レス</span></p>
+</div>

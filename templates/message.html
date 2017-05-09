@@ -1,0 +1,8 @@
+<tr class="message" id="m{{ message["number"] }}">
+  <td>ID: {{ message["userid"] }}</td>
+  <td>{{ message["username"] }}</td>
+  {% if message["threadid"] is 1 %}
+      <td>{{ message["time"] }}</td>
+  {% end %}
+  <td class="threadtext">{% module linkify(message["text"], extra_params='target="_blank"') %}</td>
+</tr>

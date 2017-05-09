@@ -1,0 +1,47 @@
+{% if thread["id"] is not 1 %}
+    {% module AdRandom() %}
+{% end %}
+
+<div id="{{ "inbox" + str(thread["id"]) }}" class="inbox">
+  {% if thread["id"] is not 1 %}
+    <div id="thread-title">
+      <h1>{{ (thread["imagename"]) }}</h1>
+  {% end %}
+  <table id="{{ "messagetable" + str(thread["id"])}}" class="messagetable">
+    {% for message in manager.ResponseManager.get_thread_response(thread["id"], "reverse") %}
+      {% module Template("message.html", message=message) %}
+    {% end %}
+  </table>
+</div>
+
+<div class="input" id="{{ "input" + str(thread["id"]) }}">
+    <form action="/a/message/new" method="post" id="{{ "messageform" + str(thread["id"])}}" class="messageform">
+      <table>
+        <tr>
+          {% if thread["id"] != 1 %}
+          <td>名前</td>
+          <td><input name="name" id="messagename" style="width:100px"></td>
+          {% end %}
+        </tr>
+        <tr>
+          <label><td><input type="checkbox" name="random" value="1">          
+          <td>use random id</td></label>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          {% if thread["id"] == 1 %}
+          <td><input type="text" name="threadname" id="message" style="width:350px"></td>
+          {% else %}
+          <td><textarea name="body" id="message" rows="10" style="width:350px"></textarea></td>
+          {%end%}
+          <td style="padding-left:5px">
+            <input type="submit" value="{{ _("Post") }}">
+            <input type="hidden" name="next" value="{{ request.path }}">
+            {% module xsrf_form_html() %}
+          </td>
+        </tr>
+      </table>
+    </form>
+</div>
+

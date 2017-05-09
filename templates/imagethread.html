@@ -1,0 +1,55 @@
+{% if thread["id"] is not 1 %}
+    {% module AdRandom() %}
+{% end %}
+
+<div id="{{ "inbox" + str(thread["id"]) }}" class="inbox">
+  {% if thread["id"] is not 1 %}
+      <a href="{{ static_url(thread["imagename"]) }}" target="blank">
+          <img src="{{ static_url(thread["imagename"]) }}" width="100%">
+      </a>
+  {% end %}
+  <table id="{{ "messagetable" + str(thread["id"])}}" class="messagetable">
+    {% for message in manager.ResponseManager.get_thread_response(thread["id"], "reverse") %}
+      {% module Template("message.html", message=message) %}
+    {% end %}
+  </table>
+</div>
+
+<div class="input" id="{{ "input" + str(thread["id"]) }}">
+    <form action="/a/message/new" method="post" id="{{ "messageform" + str(thread["id"])}}" class="messageform">
+      <table>
+        <tr>
+          <td>名前</td>
+          <td><input name="name" id="messagename" style="width:100px"></td>
+          {% if thread["id"] == 1 %}
+          <td>閲覧必要lolv</td>
+          <td><input name="requiredlolv" id="requiredlolv" style="width:100px" value="0"></td>
+          <td>image file</td>
+          <td><input type="file" name="image" id="image"></td>
+          {% end %}
+        </tr>
+        <tr>
+          <label><td><input type="checkbox" name="random" value="1">          
+          <td>use random id</td></label>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td><input type="text" name="body" id="message" style="width:250px"></td>
+          <td style="padding-left:5px">
+            <input type="submit" value="{{ _("Post") }}">
+            <input type="hidden" name="next" value="{{ request.path }}">
+            {% module xsrf_form_html() %}
+          </td>
+          {% if thread["id"] is not 1 %}
+            <td>
+              <button type="button" class="lovemessage" >
+                  きゃわわな気持ちを自動レス
+              </button>
+          </td>
+          {% end %}
+        </tr>
+      </table>
+    </form>
+</div>
+

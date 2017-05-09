@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends "main.html" %}
+
+{% block page_type %}
+    textboard板
+{% end %}
+
+{% block header %} 
+    <div id="title">
+        <div id="explain">
+            <a href="http://bbs.preteengirls.org/" target="_blank">小中学生動画像まとめ掲示板(test)</a>
+            <br>
+            雑談・要望・情報交換に使ってください
+            <br>
+            メインサイト:<a href="http://preteengirls.org" target="_blank">小中学生動画像まとめブログ</a>
+            アンテナサイト:<a href="http://www.antenna-z.com/robotman/" target="_blank">小中学生動画像なび</a>
+           <br>
+            投稿方法:コメントを入力してPost
+           <br>
+           テキスト専門の掲示板です。スレを立てるにはlolvを100消費します。
+           <br>
+       </div>
+       <div id="personalinfo">
+            あなたの情報:
+            <p id="lolvbox">
+            LoLv:<span id="lolv">{{ lolv }}</span>
+            </p>
+       </div>
+       <div id="waiternum">
+            <p id="num">
+            閲覧者数は0人
+            </p>
+       </div>
+    </div>
+{% end %}
+
+{% block rounge %}
+     <div id="body">
+          {% module Template("textthread.html",manager = manager, thread=(roungethread)) %}
+     </div>
+{% end %}
+
+{% block threads %}
+        <div id="threadlist" class="textlist">
+          {% for image in reversed(textthreads[-150:]) %}
+            {% module Template("texts.html", text = image, ressnum =  manager.ResponseManager.get_thread_responsenum(image["id"])) %}
+          {% end %}
+        </div>
+{% end %}
+
+{% block javascript %}
+    <script src="{{ static_url("textchat.js") }}" type="text/javascript"></script>
+{% end %}
+
+
