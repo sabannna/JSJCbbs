@@ -20,10 +20,14 @@ git clone https://github.com/sabannna/JSJCbbs.git
 ```
 
 3 : データベースを作る
+```
 python3 create_db.py
+```
 
 4 : サーバーを走らせる
+```
 python3 main.py
+```
 
 以上です。
 

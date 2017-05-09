@@ -7,11 +7,11 @@
     <div id="thread-title">
       <h1>{{ (thread["imagename"]) }}</h1>
   {% end %}
-  <table id="{{ "messagetable" + str(thread["id"])}}" class="messagetable">
+  <div class="alert alert-success messagetable" id="{{ "messagetable" + str(thread["id"])}}">
     {% for message in manager.ResponseManager.get_thread_response(thread["id"], "reverse") %}
-      {% module Template("message.html", message=message) %}
+      {% module Template("message.html", message=message) %}<br>
     {% end %}
-  </table>
+  </div>
 </div>
 
 <div class="input" id="{{ "input" + str(thread["id"]) }}">

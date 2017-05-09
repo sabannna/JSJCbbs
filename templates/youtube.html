@@ -18,17 +18,6 @@
             まだtest verなので、そのうちしっかりつくります
            <br>
        </div>
-       <div id="personalinfo">
-            あなたの情報:
-            <p id="lolvbox">
-            LoLv:<span id="lolv">{{ lolv }}</span>
-            </p>
-       </div>
-       <div id="waiternum">
-            <p id="num">
-            閲覧者数は0人
-            </p>
-       </div>
     </div>
 {% end %}
 
@@ -39,9 +28,11 @@
 {% end %}
 
 {% block threads %}
-        <div id="threadlist" class="youtubelist">
+        <div class="row mt-3" id="threadlist">
           {% for image in reversed(youtubethreads[-150:]) %}
-            {% module Template("youtubes.html", youtube = image, ressnum =  manager.ResponseManager.get_thread_responsenum(image["id"])) %}
+            <div class="col-sm-4 col-md-2 p-0">
+                {% module Template("youtubes.html", youtube = image, ressnum =  manager.ResponseManager.get_thread_responsenum(image["id"])) %}
+            </div>
           {% end %}
         </div>
 {% end %}

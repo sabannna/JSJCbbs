@@ -18,17 +18,7 @@
            テキスト専門の掲示板です。スレを立てるにはlolvを100消費します。
            <br>
        </div>
-       <div id="personalinfo">
-            あなたの情報:
-            <p id="lolvbox">
-            LoLv:<span id="lolv">{{ lolv }}</span>
-            </p>
-       </div>
-       <div id="waiternum">
-            <p id="num">
-            閲覧者数は0人
-            </p>
-       </div>
+
     </div>
 {% end %}
 
@@ -39,7 +29,7 @@
 {% end %}
 
 {% block threads %}
-        <div id="threadlist" class="textlist">
+        <div class="mt-3" id="threadlist">
           {% for image in reversed(textthreads[-150:]) %}
             {% module Template("texts.html", text = image, ressnum =  manager.ResponseManager.get_thread_responsenum(image["id"])) %}
           {% end %}
