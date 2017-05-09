@@ -212,7 +212,8 @@ function youtubeClick(id){
     loveClick(id)
     var message = {
         id: id,
-        type: "youtube"
+        type: "youtube",
+        imagefile: "false"
     };
     updater.socketthread.send(JSON.stringify(message));
 }
@@ -220,14 +221,16 @@ function youtubeClick(id){
 function deleteClick(id) {
     var message = {
         id: id,
-        delete: 1
+        delete: 1,
+        imagefile: "false"
     };
     updater.socket.send(JSON.stringify(message));
 }
 function deleteYoutubeClick(id) {
     var message = {
         id: id,
-        delete: 1
+        delete: 1,
+        imagefile: "false"
     };
     updater.youtubesocket.send(JSON.stringify(message));
 }

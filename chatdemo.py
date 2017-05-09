@@ -109,6 +109,7 @@ class ChatSocketHandler(tornado.websocket.WebSocketHandler):
 
         parsed = tornado.escape.json_decode(message)
 
+        print(parsed)
         if parsed["imagefile"] == "true":
             #import pdb;pdb.set_trace()
             FileSocketHandler.requiredlolv = parsed["requiredlolv"]
