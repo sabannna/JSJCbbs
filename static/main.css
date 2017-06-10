@@ -1,0 +1,54 @@
+.lbox {
+    z-index: 10;
+    overflow: hidden;
+    position: fixed;
+    top: 5px;
+    left: 3px;
+    color: black;
+    margin: 0;
+    padding: 3px;
+    font-size: 9pt;
+    background-color: #FFFFFF;
+    border: 1pt solid #999999;
+}      
+
+.inbox {
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.lovebutton {
+    display: block;
+    background-color: #ffcccc;
+    color: #cc0066;
+    width: 80%;
+    height: 3em;
+    float: left;
+}
+.deletebutton {
+    display: block;
+    background-color: black;
+    color: white;
+    width: 20%;
+    height: 3em;
+    float: left;
+}
+.commentnum {
+    background: rgba(0,0,0,0.8);
+}
+.commentnum span {
+    color: white;
+    margin: 0 auto;
+}
+.img-max {
+    height: 120px;
+}
+
+#threadbox {
+    float: left;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    width: 50%;
+    position: fixed;
+}
