@@ -17,6 +17,12 @@
     overflow-x: hidden;
     overflow-y: scroll;
 }
+.inbox_u {
+    max-height: 350px;
+    height: 50%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
 .lovebutton {
     display: block;
     background-color: #ffcccc;
@@ -51,4 +57,8 @@
     margin-bottom: 0px;
     width: 50%;
     position: fixed;
+}
+
+.inbox_u a img {
+    max-height: 200px;
 }

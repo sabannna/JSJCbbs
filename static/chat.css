@@ -91,13 +91,19 @@ td {
    position: relative;
 }
 
-#threadbox {
+.threadbox {
     float: left;
     bottom: 0px;
     right: 0px;
     margin-bottom: 0px;
     width: 50%;
+    height: 50%;
+    max-height: 500px;
     position: fixed;
+}
+
+div.threadbox a img {
+    max-height: 300px;
 }
 
 #menubox {

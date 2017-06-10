@@ -2,7 +2,7 @@
     {% module AdRandom() %}
 {% end %}
 
-<div id="{{ "inbox" + str(thread["id"]) }}" class="inbox">
+<div id="{{ "inbox" + str(thread["id"]) }}" class="inbox_u">
   {% if thread["id"] is not 1 %}
       <a href="{{ static_url(thread["imagename"]) }}" target="blank">
           <img src="{{ static_url(thread["imagename"]) }}" width="100%">
